@@ -3,7 +3,6 @@ Simple python application to calculate droprate percentage of a hench in MixMast
 ![Application Window](https://cdn.discordapp.com/attachments/1076530629912580186/1110828841800319046/image.png)
 
 # Getting Started
-Instructions to build the project
 
 ## Prerequisites
 
