@@ -99,7 +99,6 @@ class my_window(QMainWindow):
         ServerRate = int(self.server.text())
         MarkRate = int(self.mark.text())
         BaseRate = float(MobRate * ServerRate * MarkRate)
-        self.droprate = BaseRate
 
         if diff >= 10 and diff < 19:
             BaseRate = BaseRate * 0.9
@@ -112,6 +111,7 @@ class my_window(QMainWindow):
         elif diff > 50:
             BaseRate = BaseRate * 0.5
 
+        self.droprate = BaseRate
         self.droppercentage = (BaseRate / 10000000) * 100
         kills = int(10000000/BaseRate)
         self.label_droprate.setText(f"Droprate : {self.droppercentage:.10f}%\nExpected kills to drop : {kills}")
@@ -129,7 +129,7 @@ class my_window(QMainWindow):
         self.kill_list.append(kills)
         self.kill_list.sort()
         mean = int(sum(self.kill_list) / len(self.kill_list))
-        self.label_sim_drop.setText(f"Dropped after {kills} kills\nAverage kills to drop : {mean}\nLeast kills to drop :{self.kill_list[0]}\nMost kills to drop : {self.kill_list[-1]}")
+        self.label_sim_drop.setText(f"Dropped after {kills} kills\nAverage kills to drop : {mean}\nLeast kills to drop : {self.kill_list[0]}\nMost kills to drop : {self.kill_list[-1]}")
         return
     
     def ClearKills(self):
